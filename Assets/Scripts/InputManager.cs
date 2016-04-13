@@ -5,7 +5,11 @@ using System.Collections;
 // Helpful Names
 public enum Buttons {
 	Right,
-	Left
+	Left,
+	Up,
+	Down,
+	A,
+	B
 }
 
 // To check -1, 0, 1 in axis

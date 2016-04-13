@@ -23,13 +23,10 @@ public class InputState : MonoBehaviour {
 		// Check if released or still down
 		if (state.value && !value) {
 			// Released
-			Debug.Log ("Button " + key + " released " + state.holdTime);
 			state.holdTime = 0;
 		} else if (state.value && value) {
 			// Being held down when previously already held down
 			state.holdTime += Time.deltaTime;
-
-			Debug.Log ("Button " + key + " down " + state.holdTime);
 		}
 
 		// Set the value for the button state
