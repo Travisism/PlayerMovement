@@ -7,10 +7,23 @@ public class ButtonState {
 	public float holdTime = 0;
 }
 
+public enum Directions {
+	Right = 1,
+	Left = -1
+}
+
+// This class gets added to the object that needs to move
 public class InputState : MonoBehaviour {
 
+	// All art must default to the right
+	public Directions direction = Directions.Right;
+
+
+	// Store Any Button States
 	private Dictionary<Buttons, ButtonState> buttonStates = new Dictionary<Buttons, ButtonState>();
 
+
+	// Set the value of any key
 	public void SetButtonValue(Buttons key, bool value) {
 		// Add to dictionary if it doesn't already exist
 		if (!buttonStates.ContainsKey (key))
