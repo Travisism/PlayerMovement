@@ -18,9 +18,25 @@ public class InputState : MonoBehaviour {
 	// All art must default to the right
 	public Directions direction = Directions.Right;
 
+	// FixedUpdate always tracks object velocity
+	public float absVelX = 0f;
+	public float absVelY = 0f;
+
 
 	// Store Any Button States
 	private Dictionary<Buttons, ButtonState> buttonStates = new Dictionary<Buttons, ButtonState>();
+
+	// Store local rigid body
+	private Rigidbody2D body2d;
+
+	void Awake() {
+		body2d = GetComponent<Rigidbody2D> ();
+	}
+
+	void FixedUpdate() {
+		absVelX = Mathf.Abs (body2d.velocity.x);
+		absVelY = Mathf.Abs (body2d.velocity.y);
+	}
 
 
 	// Set the value of any key
