@@ -3,6 +3,7 @@ using System.Collections;
 
 public class Grenade : MonoBehaviour {
 
+	public AudioClip explode;
 
 	private Rigidbody2D body2d;
 	public float Power;
@@ -33,6 +34,11 @@ public class Grenade : MonoBehaviour {
 //		mousePos.z = 10;
 //		Vector3 objPos1 = Camera.main.ScreenToWorldPoint(mousePos);
 		AddExplosionForce(player.GetComponent<Rigidbody2D>(), Power * 100, body2d.transform.position, Radius);
+
+		AudioSource audio = GetComponent<AudioSource> ();
+		audio.clip = explode;
+
+		audio.Play ();
 
 		Destroy (gameObject);
 	}
